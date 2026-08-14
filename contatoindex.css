@@ -1,0 +1,527 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS E DESIGN (Aparece tanto no PC quanto Celular)
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Barra de Navegação / Menu Superior */
+.container-botao {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    /* Faz os 7 botões quebrarem de linha se não couberem */
+    padding: 0 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.container-botao button {
+    padding: 5px 20px;
+    font-size: 30px;
+    background-color: #b7a364;
+    color: #0a0a0a;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-top: 3%;
+}
+
+/* Base de estilo padrão para os 3 botões amarelos */
+.botao-social {
+    width: 180px;
+    text-align: center;
+    background-color: #ffd700;
+    color: #000000;
+    text-decoration: none;
+    padding: 9px 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: 0.2s ease-in-out;
+}
+
+.botao-social:hover {
+    transform: scale(1.05);
+    background-color: #ffcc00;
+}
+
+/* ==========================================================================
+   2. TELAS GRANDES / COMPUTADOR (Aplica apenas acima de 769px)
+   ========================================================================== */
+@media (min-width: 769px) {
+
+    /* Imagem de fundo de madeira */
+    .madeira-fundo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .conteudo-principal {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 100px);
+    }
+
+    .caixa-contato {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 40px auto;
+
+    }
+
+    .bloco-mapa {
+        width: 100%;
+        max-width: 260px;
+        height: 220px;
+        border-radius: 12px;
+        overflow: hidden;
+        display: block;
+    }
+
+    .bloco-mapa iframe {
+        width: 100%;
+        height: 320%;
+        border: 0;
+        display: block;
+    }
+
+    /* ==== 1. Botões de cima (Home, Sobre, Galeria...) — FORÇA TOTAL ==== */
+    .container-botao button,
+    .botao {
+        display: inline-block;
+        padding: 5px 20px !important;
+        /* Espaçamento interno ideal para o clique */
+        font-size: 30px !important;
+        /* Tamanho da letra idêntico ao original */
+        background-color: #b7a364 !important;
+        /* Cor dourada marcante do seu salão */
+        color: #000000 !important;
+        /* Texto interno em preto para dar contraste */
+        border: none !important;
+        /* Remove as bordas cinzas do navegador */
+        border-radius: 30px !important;
+        /* Formato arredondado de pílula elegante */
+        cursor: pointer !important;
+        /* Mostra a mãozinha de clique */
+        font-weight: bold !important;
+        /* Letras em negrito */
+        text-decoration: none !important;
+        /* Remove qualquer sublinhado de link */
+        white-space: nowrap !important;
+        /* Evita que o texto quebre em duas linhas */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        /* Sombra suave para dar relevo */
+        margin-top: 14px;
+    }
+
+    /* ==== 2. Caixa de contato toda — MAIS PRA BAIXO ==== */
+    .caixa-contato {
+        margin-top: 60px !important;
+        /* ← AUMENTA esse número pra descer mais: 80, 100... */
+        padding-top: 0px !important;
+    }
+
+    /* ==== 3. Telefone maior ==== */
+    .bloco-telefone {
+        font-size: 18px !important;
+        margin-bottom: 20px !important;
+        margin-top: 0px;
+
+    }
+
+    /* ==== 4. Botões amarelos com espaço ==== */
+    .botao-social {
+        width: 200px !important;
+        padding: 18px !important;
+        font-size: 16px !important;
+        margin: 22px 0 !important;
+
+    }
+
+    /* ==== 5. Mapa maior, centralizado e com espaço ==== */
+    .bloco-mapa {
+        max-width: 300px !important;
+        height: 340px !important;
+        margin-top: 30px !important;
+        margin-left: 610px !important;
+
+    }
+
+    .bloco-mapa iframe {
+        width: 100% !important;
+        height: 100% !important;
+    }
+.icone-livre {
+  position: absolute !important;
+  width: 32px !important;   /* ← TAMANHO PEQUENINHO — aumenta se quiser maior */
+  height: 32px !important;  /* ← Proporcional */
+  z-index: 10 !important;    /* ← Aparece por cima de tudo */
+}
+
+/* ==========================================
+   🎠 CARROSSEL COMPLETO
+   ========================================== */
+.carrossel-container {
+  position: relative !important;
+  max-width: 500px !important; /* ← Largura máxima do carrossel */
+  width: 100% !important;
+  margin: 30px auto !important; /* ← Centraliza na página */
+  overflow: hidden !important;
+  border-radius: 15px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+.carrossel {
+  display: flex !important;
+  transition: transform 0.5s ease-in-out !important;
+}
+
+.slide {
+  min-width: 100% !important;
+  display: none !important;
+}
+
+.slide.ativo {
+  display: block !important;
+}
+
+.slide img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+}
+
+/* ⬅️➡️ BOTÕES DE NAVEGAÇÃO */
+.btn-anterior, .btn-proximo {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: rgba(0,0,0,0.5) !important;
+  color: white !important;
+  border: none !important;
+  font-size: 24px !important;
+  padding: 12px 16px !important;
+  cursor: pointer !important;
+  border-radius: 50% !important;
+  z-index: 10 !important;
+  transition: background-color 0.2s !important;
+}
+
+.btn-anterior:hover, .btn-proximo:hover {
+  background-color: rgba(0,0,0,0.8) !important;
+}
+
+.btn-anterior {
+  left: 10px !important;
+}
+
+.btn-proximo {
+  right: 10px !important;
+}
+
+/* ⚪ PONTINHOS INDICADORES */
+.pontos {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 15px 0 !important;
+  background-color: rgba(0,0,0,0.1) !important;
+  border-radius: 0 0 15px 15px !important;
+}
+
+.ponto {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: #ccc !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+}
+
+.ponto.ativo {
+  background-color: #ffd700 !important; /* ← Cor dourada igual aos botões */
+  transform: scale(1.3) !important;
+}
+
+/* ==========================================
+   📱 CELULAR — Responsivo
+   ========================================== */
+@media (max-width: 768px) {
+  .carrossel-container {
+    max-width: 90% !important;
+    margin: 20px auto !important;
+  }
+
+  .btn-anterior, .btn-proximo {
+    font-size: 18px !important;
+    padding: 8px 12px !important;
+  }
+}
+}
+
+
+
+
+
+/* ==========================================================================
+   5. AGORA DAQUI PARA BAIXO SERÁ OS AJUSTES PARA CELULAR (Em Pé)
+   ========================================================================== */
+@media (max-width: 768px) {}
+
+html,
+body {
+    height: auto;
+    overflow-y: auto;
+    /* Garante a rolagem vertical perfeita ao deitar o celular */
+
+}
+
+/* Enquadramento do fundo de madeira no celular */
+.madeira-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Menu Superior no Celular (Organiza os 7 botões perfeitamente) */
+.container-botao {
+    width: 100%;
+    padding: 10px;
+    gap: 8px;
+}
+
+.container-botao button {
+    padding: 6px 12px;
+    font-size: 14px;
+    /* Diminuído para caberem bem no celular */
+    margin-top: 0;
+    border-radius: 20px;
+}
+
+/* Organiza o conteúdo em fila vertical usando Flexbox */
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 40px;
+    height: auto;
+}
+
+
+
+/* Layout geral da seção Contato */
+.conteudo-principal {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.caixa-contato {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+/* Bloco Botões */
+.bloco-botoes {
+    flex: 1 1 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Estilo dos botões amarelos */
+.botao-social {
+    width: 160px;
+    padding: 8px 12px;
+    background-color: #ffd100;
+    color: #000;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.2s;
+    font-size: 12px;
+    margin-top: 2%;
+}
+
+.botao-social:hover {
+    transform: scale(1.05);
+    background-color: #ffcc00;
+}
+/* ==========================================
+   🎠 CARROSSEL COMPLETO
+   ========================================== */
+.carrossel-container {
+  position: relative !important;
+  max-width: 500px !important; /* ← Largura máxima do carrossel */
+  width: 100% !important;
+  margin: 30px auto !important; /* ← Centraliza na página */
+  overflow: hidden !important;
+  border-radius: 15px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+.carrossel {
+  display: flex !important;
+  transition: transform 0.5s ease-in-out !important;
+}
+
+.slide {
+  min-width: 100% !important;
+  display: none !important;
+}
+
+.slide.ativo {
+  display: block !important;
+}
+
+.slide img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+}
+
+/* ⬅️➡️ BOTÕES DE NAVEGAÇÃO */
+.btn-anterior, .btn-proximo {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: rgba(0,0,0,0.5) !important;
+  color: white !important;
+  border: none !important;
+  font-size: 24px !important;
+  padding: 12px 16px !important;
+  cursor: pointer !important;
+  border-radius: 50% !important;
+  z-index: 10 !important;
+  transition: background-color 0.2s !important;
+}
+
+.btn-anterior:hover, .btn-proximo:hover {
+  background-color: rgba(0,0,0,0.8) !important;
+}
+
+.btn-anterior {
+  left: 10px !important;
+}
+
+.btn-proximo {
+  right: 10px !important;
+}
+
+/* ⚪ PONTINHOS INDICADORES */
+.pontos {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 15px 0 !important;
+  background-color: rgba(0,0,0,0.1) !important;
+  border-radius: 0 0 15px 15px !important;
+}
+
+.ponto {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: #ccc !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+}
+
+.ponto.ativo {
+  background-color: #ffd700 !important; /* ← Cor dourada igual aos botões */
+  transform: scale(1.3) !important;
+}
+
+/* ==========================================
+   📱 CELULAR — Responsivo
+   ========================================== */
+@media (max-width: 768px) {
+  .carrossel-container {
+    max-width: 90% !important;
+    margin: 20px auto !important;
+  }
+
+  .btn-anterior, .btn-proximo {
+    font-size: 18px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* 📱 CELULAR VERTICAL — empilha tudo */
+@media (max-width: 768px) {
+    .caixa-contato {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bloco-telefone {
+        font-size: 18px;
+    }
+
+    .bloco-mapa {
+        width: 90%;
+    }
+}
+
+/* 📱 CELULAR HORIZONTAL (deitado) — lado a lado */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+    .caixa-contato {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .bloco-telefone,
+    .bloco-botoes {
+        flex: 1 1 200px;
+    }
+
+    .bloco-mapa {
+        flex: 2 1 200px;
+    }
+
+      
+}

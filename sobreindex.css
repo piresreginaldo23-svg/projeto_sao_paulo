@@ -1,0 +1,158 @@
+body {
+    background-image: url("fundo1.jpg");
+    /* Define a imagem de fundo da página */
+    background-size: cover;
+    /* Faz a imagem esticar para cobrir a tela toda */
+    background-position: center;
+    /* Centraliza o fundo na tela (não deixa cortar) */
+    background-repeat: no-repeat;
+    /* Impede que a imagem fique se repetindo como mosaico */
+    background-attachment: fixed;
+    /* Deixa o fundo travado enquanto você rola a página */
+}
+
+img {
+    width: 250px;
+    /* Diminui o seu logo antigo para ele não cobrir a tela toda */
+    height: auto;
+    /* Mantém a proporção correta da altura do logo */
+    display: block;
+    /* Transforma a imagem em bloco para conseguir centralizar */
+    margin: 0 auto 20px auto;
+    /* Centraliza o logo e cria um espaço de 20px abaixo dele */
+}
+
+/* Configurações Globais do Corpo */
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Barra de Navegação/Menu Superior */
+.container-botao {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 0 15px;
+}
+
+.container-botao button {
+   padding: 0px 17px;          /* Define o espaço interno do botão (superior/inferior e lados) */
+    font-size:30px;             /* Define o tamanho do texto do botão */
+    background-color: #b7a364;   /* Aplica a cor dourada de fundo no botão */
+    color: #0a0a0a;                 /* Define a cor do texto do botão como preta */
+    border: none;                /* Remove aquela borda padrão cinza que vem nos botões */
+    border-radius:30px;          /* Arredonda os cantos do botão em 5 pixels */
+    cursor: pointer;             /* Transforma a seta do mouse naquela "mãozinha" de clique */
+    font-weight: bold;           /* Deixa o texto do botão em negrito */
+    white-space: nowrap;
+    margin-top: 3%;         /* Impede que palavras grandes quebrem para a linha de baixo */
+    padding: 5px 20px;
+}
+
+/* ==========================================================================
+   VERSÃO 100% COMPACTA E RESPONSIVA PARA A PÁGINA HOME (CELULAR EM PÉ)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. MENU SUPERIOR COMPACTO E FIXO NO TOPO */
+    .container-botao {
+        position: fixed !important; /* TRAVA O MENU NO TOPO DA TELA */
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important; 
+        padding: 8px 4px !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important; /* Garante que ele fique por cima de qualquer texto ao rolar */
+        background-color: rgba(0, 0, 0, 0.8) !important; /* Fundo preto semi-transparente elegante para não misturar com as letras de baixo */
+        backdrop-filter: blur(5px) !important; /* Efeito de vidro fosco opcional atrás dos botões */
+    }
+
+    .container-botao button {
+        font-size: 11px !important;  
+        padding: 4px 8px !important;  
+        width: auto !important;
+        white-space: nowrap !important;
+        margin-top: 0 !important;
+        border-radius: 15px !important;
+    }
+
+    /* 2. CONSERTO DA LOGO DE FUNDO EM PÉ */
+    img {
+        width: 85% !important; 
+        height: auto !important;
+        max-height: 75vh !important;
+        object-fit: contain !important; 
+        position: fixed !important;
+        top: 55% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+
+    body {
+        background-color: #000000 !important; 
+        padding-top: 50px !important; /* Dá um espaço no topo para o texto do "Seja bem-vindo" não começar escondido debaixo do menu fixo */
+    }
+}
+
+/* ==========================================================================
+   REGRA EXCLUSIVA PARA CELULAR DEITADO - MENU FIXO E COMPACTO
+   ========================================================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* 1. COMPACTA E FIXA O MENU SUPERIOR DEITADO */
+    .container-botao {
+        position: fixed !important; /* TRAVA O MENU NO TOPO TAMBÉM DEITADO */
+        top: 0 !important;
+        left: 0 !important;
+        padding: 4px 2px !important; 
+        gap: 3px !important;         
+        width: 100% !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* 2. DIMINUI OS LETREIROS DEITADOS */
+    .container-botao button {
+        font-size: 9px !important;    
+        padding: 2px 5px !important;  
+        border-radius: 10px !important; 
+    }
+
+    /* 3. MANTÉM O FUNDO PRETO ABSOLUTO NAS LATERAIS */
+    html, body {
+        background-color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 35px !important; /* Espaço pro menu na horizontal */
+        overflow-x: hidden !important;
+    }
+
+    /* 4. MANTÉM A LOGO DO SALÃO CENTRALIZADA E ELEGANTE */
+    img {
+        width: auto !important;
+        height: 75vh !important; 
+        max-width: 95vw !important;
+        object-fit: contain !important;
+        position: fixed !important;
+        top: 58% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+}
+h1{
+    color: rgb(181, 165, 227);
+}
+h2{
+    color: rgb(247, 245, 235);
+}

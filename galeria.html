@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Barbearia</title>
+    <link rel="stylesheet" href="galeriaindex.css">
+
+</head>
+
+<body>
+
+    <img src="logo.jpg" class="fundo-site" alt="logo.paulo">
+
+    <div class="container-botao">
+        <button onclick="window.location.href='arquivo.html'">Home</button>
+        <button onclick="window.location.href='sobre.html'">Sobre</button>
+        <button onclick="window.location.href='galeria.html'">Galeria</button>
+        <button onclick="window.location.href='profissional.html'">Profissional</button>
+        <button onclick="window.location.href='horario.html'">Horário</button>
+        <button onclick="window.location.href='servicos.html'">Serviços</button>
+        <button onclick="window.location.href='contato.html'">Contato</button>
+    </div>
+    <section id="galeria" class="secao-galeria">
+
+        <!-- Inicio do Carrocel-->
+        <div class="carrocel-container">
+            <div class="carrocel-slides">
+                <div class="slide ativo">
+                    <img src="carrocel1.jpg" class="foto-carrocel" alt="foto 1 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel2.jpg" class="foto-carrocel" alt="foto 2 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel3.jpg" class="foto-carrocel" alt="foto 3 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel4.jpg" class="foto-carrocel" alt="foto 4 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel5.jpg" class="foto-carrocel" alt="foto 5 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel6.jpg" class="foto-carrocel" alt="foto 6 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel7.jpg" class="foto-carrocel" alt="foto 7 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel8.jpg" class="foto-carrocel" alt="foto 8 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel9.jpg" class="foto-carrocel" alt="foto 9 carrocel">
+                </div>
+                <div class="slide">
+                    <img src="carrocel10.jpg" class="foto-carrocel" alt="foto 10 carrocel">
+                </div>
+
+
+
+
+            </div>
+            <button class="btn-nav anterior" onclick="mudarSlide(-1)">&#10094;</button>
+            <button class="btn-nav proximo" onclick="mudarSlide(1)">&#10095;</button>
+        </div>
+        <!-- Fim do Carrossel -->
+    </section>
+    <div class="container-videos">
+        <div class="video-item">
+            <video src="video1.mp4" controls preload="metadata"></video>
+        </div>
+        <div class="video-item">
+            
+            <video src="video2.mp4" controls preload="metadata"></video>
+        </div>
+        <div class="video-item">
+            <video src="video3.mp4" controls preload="metadata"></video>
+        </div>
+    </div>
+
+
+    <script>
+        let slideIndex = 0;                // Cria uma variável para guardar o número da foto atual (0 é a primeira foto)
+        mostrarSlides(slideIndex);         // Executa a função pela primeira vez para exibir a foto inicial assim que a página abre
+
+        // Função que os botões chamam ao clicar. O "n" pode ser 1 (avançar) ou -1 (voltar)
+        function mudarSlide(n) {
+            mostrarSlides(slideIndex += n); // Soma ou subtrai 1 do número da foto atual e manda atualizar a tela
+        }
+
+        // Função principal que decide qual foto esconder e qual foto mostrar
+        function mostrarSlides(n) {
+            const slides = document.getElementsByClassName("slide"); // Procura e cria uma lista com todas as divs que têm a classe "slide"
+
+            // Regra: Se o usuário estiver na última foto e clicar em avançar
+            if (n >= slides.length) {
+                slideIndex = 0;            // Reseta o contador para 0, fazendo o carrossel voltar para a primeira foto
+            }
+
+            // Regra: Se o usuário estiver na primeira foto e clicar em voltar
+            if (n < 0) {
+                slideIndex = slides.length - 1; // Joga o contador para o final da lista, mostrando a última foto
+            }
+
+            // Esse "for" é um laço de repetição que vai passar limpando todas as fotos da tela
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("ativo"); // Remove a classe "ativo" de cada foto, fazendo com que todas fiquem escondidas
+            }
+
+            // Depois de esconder tudo, ele encontra a foto certa e exibe ela
+            slides[slideIndex].classList.add("ativo"); // Adiciona a classe "ativo" apenas na foto do número atual, fazendo ela aparecer
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

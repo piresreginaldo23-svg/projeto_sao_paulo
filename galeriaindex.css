@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* IMAGEM DE FUNDO DO SITE (PAPEL DE PAREDE DE MADEIRA) */
+img.fundo-site {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Faz a imagem cobrir a tela sem distorcer e sem dar zoom exagerado */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* CONTAINER PRINCIPAL DO MENU (BARRA DOS BOTÕES) */
+.container-botao {
+    position: absolute; /* Faz a barra flutuar por cima do fundo de madeira */
+    top: 60px; /* Coloca os botões perfeitamente centralizados abaixo do logo */
+    left: 0;
+    width: 100%; /* Ocupa toda a largura da tela para permitir o alinhamento */
+    display: flex; /* Ativa o sistema flexbox */
+    justify-content: center; /* Centraliza todos os botões horizontalmente no meio da tela */
+    gap: 15px; /* Mantém o espaçamento perfeito de 15px entre os botões */
+    z-index: 100; /* CAMADA MÁXIMA: Garante que o menu fique acima do carrossel */
+   
+}
+
+/* CONFIGURAÇÃO COMPLETA DOS SEUS BOTÕES DO TOPO */
+/* Ajustado para aplicar o visual dourado diretamente nos elementos do seu menu */
+.container-botao a, 
+.container-botao button,
+button[onclick*="window.location"] {
+    display: inline-block;
+    padding: 5px 20px !important; /* Espaçamento interno ideal para o clique */
+    font-size: 30px !important; /* Tamanho da letra idêntico ao original */
+    background-color: #b7a364 !important; /* Cor dourada marcante do seu salão */
+    color: #000000 !important; /* Texto interno em preto para dar contraste */
+    border: none !important; /* Remove as bordas cinzas do navegador */
+    border-radius: 30px !important; /* Formato arredondado de pílula elegante */
+    cursor: pointer !important; /* Mostra a mãozinha de clique */
+    font-weight: bold !important; /* Letras em negrito */
+    text-decoration: none !important; /* Remove qualquer sublinhado de link */
+    white-space: nowrap !important; /* Evita que o texto quebre em duas linhas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave para dar relevo */
+    margin-top: 14px;
+}
+
+/* SÍTIO DO TÍTULO "GALERIA" */
+/* Organiza o título em h2 para não ficar sumido atrás do menu */
+.secaogaleria h2, 
+#galeria h2 {
+    position: absolute;
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 28px;
+    z-index: 50;
+    font-family: sans-serif;
+}
+
+/* CONTAINER DO CARROSSEL 3D */
+.carrocel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Largura perfeita para exibir os 3 cartões lado a lado */
+    height: 360px;
+    /* MARGEM SUPERIOR AJUSTADA: Empurra o caixote para baixo, limpando o letreiro */
+    margin: 280px auto 40px auto !important; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px; /* Ativa a profundidade 3D dos cartões */
+    z-index: 10; /* Fica abaixo do menu do topo */
+}
+
+/* ESTEIRA INTERNA DOS SLIDES */
+.carrocel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+/* ESTILO BASE DE CADA CARTÃO DE FOTO */
+.slide {
+    position: absolute; /* Empilha as fotos uma em cima da outra no centro */
+    width: 200px; /* Largura ideal do cartão */
+    height: 280px; /* Altura ideal do cartão */
+    border-radius: 15px; /* Cantos arredondados suaves nas fotos */
+    overflow: hidden; /* Corta as rebarbas da imagem */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6); /* Sombra preta para destacar o cartão */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Transição suave do efeito */
+    opacity: 0;
+    transform: translateX(0) scale(0.5);
+    z-index: 1;
+}
+
+/* CARTÃO DA ESQUERDA (FOTO ANTERIOR) */
+.slide:has(+ .slide.ativo) {
+    opacity: 0.65;
+    transform: translateX(-150px) scale(0.85) rotateY(20deg); /* Inclinação 3D para a esquerda */
+    z-index: 5;
+    display: block !important;
+}
+
+/* CARTÃO CENTRAL (FOTO EM DESTAQUE) */
+.slide.ativo {
+    opacity: 1;
+    transform: translateX(0) scale(1.1); /* Zoom para destacar no meio */
+    z-index: 10; /* Camada da frente */
+    display: block !important;
+}
+
+/* CARTÃO DA DIREITA (PRÓXIMA FOTO) */
+.slide.ativo + .slide {
+    opacity: 0.65;
+    transform: translateX(150px) scale(0.85) rotateY(-20deg); /* Inclinação 3D para a direita */
+    z-index: 5;
+    display: block !important;
+}
+
+/* TRATAMENTO DE RETORNO CIRCULAR DO CARROSSEL */
+.slide.ativo:first-child ~ .slide:last-child {
+    opacity: 0.65;
+    transform: translateX(-150px) scale(0.85) rotateY(20deg);
+    z-index: 5;
+    display: block !important;
+}
+.slide.ativo:last-child ~ .slide:first-child {
+    opacity: 0.65;
+    transform: translateX(150px) scale(0.85) rotateY(-20deg);
+    z-index: 5;
+    display: block !important;
+}
+
+/* IMAGENS DE DENTRO DOS CARTÕES */
+.foto-carrocel {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Enche o cartão perfeitamente sem deformar */
+    position: static !important;
+}
+
+/* SETAS DOURADAS LATERAIS DE NAVEGAÇÃO */
+.btn-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #b7a364 !important; /* Dourado padrão do salão */
+    color: #000000 !important;
+    border: none !important;
+    font-size: 22px !important;
+    padding: 10px 14px !important;
+    cursor: pointer !important;
+    border-radius: 50% !important; /* Botão perfeitamente redondo */
+    z-index: 25; /* Fica na frente das fotos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.anterior { left: 10px; }
+.proximo { right: 10px; }
+/* ==========================================================================
+   DAQUI PARA BAIXO É O CONSERTO PARA O CELULAR (Cole na última linha do arquivo)
+   ========================================================================== */
+/* ==========================================================================
+   DAQUI PARA BAIXO É O CONSERTO PARA O CELULAR (Substitua no final do arquivo)
+   ========================================================================== */
+
+/* ==========================================================================
+   VERSÃO COMPACTA E 100% RESPONSIVA PARA O CELULAR
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. MENU SUPERIOR MAIS COMPACTO */
+    .container-botao {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 6px !important; /* Espaço menor entre os botões */
+        padding: 6px !important; /* Menos espaço sobrando nas bordas */
+        box-sizing: border-box !important;
+        z-index: 999 !important;
+    }
+
+    .container-botao button {
+        font-size: 11px !important; /* Letras menores nos botões */
+        padding: 5px 8px !important; /* Botões mais finos e discretos */
+        width: auto !important;
+        white-space: nowrap !important;
+        margin-top: 0 !important;
+        border-radius: 15px !important; /* Mantém o estilo pílula arredondado */
+    }
+
+    /* 2. IMAGEM DE FUNDO COMPACTADA (LOGO ENCOLHE PARA CABER NO CELULAR) */
+    img.fundo-site {
+        width: 85% !important; /* Diminuído para a logo dourada não colar nas bordas */
+        height: auto !important;
+        max-height: 80vh !important;
+        object-fit: contain !important; /* Compacta a imagem inteira sem nenhum corte */
+        position: fixed !important;
+        top: 55% !important; /* Centraliza um pouco mais abaixo do menu */
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+
+    body {
+        background-color: #000000 !important; /* Garante o fundo preto elegante preenchendo as laterais */
+    }
+
+    /* 3. CONTAINER DO CARROSSEL AJUSTADO */
+    .carrocel-container {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 280px !important; /* Reduzido a altura geral do bloco do carrossel */
+        margin: 15px auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: visible !important;
+    }
+
+    .carrocel-slides {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* 4. CARTÕES DAS FOTOS UM POUCO MENORES (SEM ESMAGAR) */
+    .slide {
+        width: 115px !important;   /* Reduzido de 150px para 115px (Mais delicado) */
+        height: 180px !important;  /* Altura proporcional reduzida para manter a foto perfeita */
+        position: absolute !important;
+        display: none !important;
+    }
+
+    /* Força a exibição dos três cards do efeito 3D */
+    .slide.ativo,
+    .slide:has(+ .slide.ativo),
+    .slide.ativo + .slide,
+    .slide.ativo:first-child ~ .slide:last-child,
+    .slide.ativo:last-child ~ .slide:first-child {
+        display: block !important;
+    }
+
+    /* Ajuste da foto dentro do cartão */
+    .slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Mantém a foto linda e sem distorção */
+        border-radius: 6px !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.6) !important;
+    }
+
+    /* 5. POSICIONAMENTO DO EFEITO 3D COMPACTADO */
+    
+    /* Foto da Esquerda (Mais perto do centro) */
+    .slide:has(+ .slide.ativo),
+    .slide.ativo:first-child ~ .slide:last-child {
+        transform: translateX(-55px) scale(0.8) rotateY(15deg) !important;
+        opacity: 0.5 !important;
+        z-index: 5 !important;
+    }
+
+    /* Foto do Meio (Destaque Central) */
+    .slide.ativo {
+        transform: translateX(0) scale(1.1) !important;
+        opacity: 1 !important;
+        z-index: 10 !important;
+    }
+
+    /* Foto da Direita (Mais perto do centro) */
+    .slide.ativo + .slide,
+    .slide.ativo:last-child ~ .slide:first-child {
+        transform: translateX(55px) scale(0.8) rotateY(-15deg) !important;
+        opacity: 0.5 !important;
+        z-index: 5 !important;
+    }
+
+    /* 6. SETAS LATERAIS ALINHADAS COM O NOVO TAMANHO */
+    .btn-nav {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 20 !important;
+        font-size: 16px !important; /* Setas levemente menores */
+        padding: 4px 8px !important;
+    }
+
+    .btn-nav.anterior { left: 15px !important; }
+    .btn-nav.proximo { right: 15px !important; }
+
+}
+/* 1. CONTAINER DOS VÍDEOS
+   Aproxima os vídeos controlando o espaço entre eles */
+.container-videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Mantém o grupo de vídeos centralizado na tela */
+    gap: -3%;                /* <<< ALTERE AQUI: 12px deixa eles bem coladinhos, mas com um respiro elegante */
+    width: 100%;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* 2. CADA ITEM DE VÍDEO
+   Diminuímos a largura máxima para que as caixinhas não fiquem se empurrando */
+.container-videos .video-item {
+    flex: 1 1 280px;          /* Ajustado de 350px para 280px para aproximar mais os blocos */
+    max-width: 320px;         /* <<< Largura máxima menor para juntar os vídeos no centro */
+    height: 550px;            /* Mantém a altura imponente que você escolheu */
+}
+
+/* 3. A TAG DE VÍDEO REAL 
+   Faz com que o player de vídeo se adapte perfeitamente ao tamanho que você definiu acima */
+.container-videos .video-item video {
+    width:80%;              /* Faz o vídeo ocupar toda a largura da caixinha item */
+    height: 70%;             /* Faz o vídeo ocupar toda a altura da caixinha item */
+    object-fit: cover;        /* Preenche todo o espaço sem deixar barras pretas e sem distorcer o vídeo */
+    border-radius: 12px;      /* Deixa as bordas do vídeo arredondadas e elegantes */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Cria uma sombra bonita ao redor de cada vídeo */
+    background-color: #000;   /* Garante fundo preto caso o vídeo carregue */
+}

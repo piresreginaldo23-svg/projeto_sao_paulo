@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("servicos.jpg");  /* O que significa: Define a imagem de fundo / Para que serve: Carrega a foto original da tesoura com o nome correto servicos.jpg */
+    background-size: cover;                 /* O que significa: Tamanho de cobertura / Para que serve: Estica a foto para preencher o seu monitor grande sem distorcer */
+    background-position: center top;        /* O que significa: Posição centralizada no topo / Para que serve: Mantém os desenhos da tesoura e navalha sempre visíveis no topo da tela */
+    background-repeat: no-repeat;           /* O que significa: Não repetir imagem / Para que serve: Proíbe o navegador de clonar a foto em efeito mosaico em telas gigantes */
+    background-attachment: fixed;           /* O que significa: Fundo travado / Para que serve: Faz a foto da tesoura ficar congelada lá atrás enquanto os textos rolam */
+    min-height: 100vh;                      /* O que significa: Altura mínima visível / Para que serve: Garante que o fundo cubra no mínimo a altura inteira da tela do aparelho */
+    margin: 0;                              /* O que significa: Margem zero / Para que serve: Retira os espaços em branco que o navegador coloca por padrão nos cantos da página */
+    padding: 0;                             /* O que significa: Espaçamento interno zero / Para que serve: Zera qualquer espaço interno padrão do corpo da página */
+    box-sizing: border-box;                 /* O que significa: Caixa calculada / Para que serve: Evita que espessuras de bordas ou espaçamentos quebrem o tamanho total da tela */
+}
+
+.container-botao {
+    display: flex;                          /* O que significa: Ativa o modo Flexbox / Para que serve: Permite alinhar e mover os botões de forma automática e moderna */
+    justify-content: center;                /* O que significa: Alinhamento horizontal ao centro / Para que serve: Coloca a barra de botões bem no meio da tela */
+    gap: 15px;                              /* O que significa: Espaçamento de fresta / Para que serve: Cria uma distância fixa de 15 pixels exatos entre um botão e outro */
+    flex-wrap: wrap;                        /* O que significa: Quebra de linha flexível / Para que serve: Faz os botões irem para baixo no celular para não quebrar o site */
+    padding: 10px 15px;                     /* O que significa: Espaço interno / Para que serve: Cria uma folga em cima, embaixo e nas laterais para proteger os botões */
+}
+
+button {
+          padding: 0px 17px;          /* Define o espaço interno do botão (superior/inferior e lados) */
+    font-size:30px;             /* Define o tamanho do texto do botão */
+    background-color: #b7a364;   /* Aplica a cor dourada de fundo no botão */
+    color: #0a0a0a;                 /* Define a cor do texto do botão como preta */
+    border: none;                /* Remove aquela borda padrão cinza que vem nos botões */
+    border-radius:30px;          /* Arredonda os cantos do botão em 5 pixels */
+    cursor: pointer;             /* Transforma a seta do mouse naquela "mãozinha" de clique */
+    font-weight: bold;           /* Deixa o texto do botão em negrito */
+    white-space: nowrap;
+    margin-top: 3%;         /* Impede que palavras grandes quebrem para a linha de baixo */
+    padding: 5px 20px;             /* O que significa: Espaçamento interno do botão / Para que serve: Deixa o botão mais "gordinho" e fácil de clicar */
+}
+
+.container-tags {
+    display: flex;                          /* O que significa: Ativa o modo Flexbox / Para que serve: Facilita o alinhamento de blocos de textos inteiros */
+    flex-direction: column;                 /* O que significa: Direção em coluna / Para que serve: Organiza os títulos para ficarem um embaixo do outro na vertical */
+    align-items: center;                    /* O que significa: Alinhamento horizontal ao centro / Para que serve: Centraliza o bloco de títulos no meio exato da tela */
+    text-align: center;                     /* O que significa: Alinhamento do texto / Para que serve: Garante que as palavras fiquem centralizadas na sua própria linha */
+    padding: 20px 15px;                     /* O que significa: Espaçamento interno / Para que serve: Dá uma folga em volta do bloco do título */
+    margin-top: 20px;                       /* O que significa: Margem superior / Para que serve: Cria um espaço em pixels entre o menu de botões e o título principal */
+    font-size: 50px;
+}
+
+.container-tags h1 {
+    font-size: 52px;                        /* O que significa: Tamanho da letra do h1 / Para que serve: Define o tamanho do título principal do salão */
+    margin: 0;                              /* O que significa: Margem zero / Para que serve: Remove as distâncias padrão automáticas do h1 para controlar manualmente */
+}
+
+#titulo-salao {
+    font-family: 'Arial Black', sans-serif; /* O que significa: Família da letra / Para que serve: Aplica a fonte Arial Black bem grossa no nome do salão */
+    color: #060607;    /* O que significa: Cor da fonte / Para que serve: Pinta o texto do título principal de preto */
+                    
+}
+
+#nome-paulo {
+    font-family: 'Arial Black', sans-serif; /* O que significa: Família da letra / Para que serve: Deixa o subtítulo com o mesmo estilo de fonte forte */
+    color: #f5a606;                         /* O que significa: Cor da fonte / Para que serve: Pinta o subtítulo "Salão Unissex" com o tom dourado/laranja */
+    display: block;                         /* O que significa: Modo de exibição em bloco / Para que serve: Obriga este elemento a se comportar como uma linha própria */
+    letter-spacing: 1px;                    /* O que significa: Espaçamento de letras / Para que serve: Cria uma leve distância moderna entre cada letra da palavra */
+    margin-top: 5px;                        /* O que significa: Margem superior / Para que serve: Afasta ligeiramente o subtítulo do título de cima */
+}
+
+.container-lista {
+    display: flex;
+    flex-direction: column;         /* O que significa: Direção em coluna / Para que serve: Coloca um serviço embaixo do outro */
+    align-items: flex-start;        /* O que significa: Alinhar itens no início / Para que serve: Garante que os textos alinhem perfeitamente à esquerda, junto com as bolinhas */
+    
+    width: max-content;             /* O que significa: Largura máxima do conteúdo / Para que serve: Faz o bloco ter o tamanho exato do maior texto, impedindo que ele ocupe a tela inteira */
+    margin: 0 auto;                 /* O que significa: Margem zero em cima/baixo e automática nas laterais / Para que serve: Pega o bloco da lista e joga bem no centro da página */
+    padding-left: 40px;             /* O que significa: Espaçamento interno à esquerda / Para que serve: Cria um espaço para as bolinhas aparecerem sem sumir da tela */
+}
+
+.container-lista li {
+    list-style-type: disc;          /* O que significa: Estilo de lista em disco / Para que serve: Ativa aquela bolinha preta clássica de marcação do lado de cada serviço */
+    font-family: 'Arial Black', sans-serif; /* Mantém a fonte marcante que você escolheu */
+    font-size: 30px;                /* Define um tamanho de letra nítido e bonito */
+    color: #ffffff;                 /* Deixa o texto branco para contrastar bem com o fundo */
+    margin-bottom: 10px;            /* O que significa: Margem inferior / Para que serve: Dá um espaço respirável entre um serviço e outro para não ficar tudo colado */
+}
+/* ==========================================================================
+   VERSÃO RESPONSIVA E AJUSTE DO CARTÃO DE HORÁRIOS (CELULAR EM PÉ)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. MENU SUPERIOR COMPACTO E FIXO NO TOPO */
+    .container-botao {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important; 
+        padding: 8px 4px !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        backdrop-filter: blur(5px) !important;
+    }
+
+    .container-botao button {
+        font-size: 11px !important;  
+        padding: 4px 8px !important;  
+        width: auto !important;
+        white-space: nowrap !important;
+        margin-top: 0 !important;
+        border-radius: 15px !important;
+    }
+
+    /* 2. LOGO OU IMAGEM DE FUNDO COMPACTA */
+    img {
+        width: 85% !important; 
+        height: auto !important;
+        max-height: 75vh !important;
+        object-fit: contain !important; 
+        position: fixed !important;
+        top: 20% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+
+    /* 3. PEGA O SEU QUADRO/CARTÃO E PUXA ELE PARA CIMA */
+    body {
+        background-color: #000000 !important;
+    }
+
+    /* Ajusta o container do quadro de horários para subir */
+    section, .container-horario, .quadro-horario { 
+        position: relative !important;
+        margin-top: 70px !important; /* Controla a distância exata do menu do topo */
+        padding: 15px !important;
+        top: 0 !important;
+    }
+}
+
+/* ==========================================================================
+   REGRA EXCLUSIVA PARA CELULAR DEITADO (HORIZONTAL) - SUBIR O QUADRO
+   ========================================================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* 1. COMPACTA O MENU SUPERIOR DEITADO */
+    .container-botao {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 4px 2px !important; 
+        gap: 3px !important;         
+        width: 100% !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .container-botao button {
+        font-size: 9px !important;    
+        padding: 2px 5px !important;  
+        border-radius: 10px !important; 
+    }
+
+    html, body {
+        background-color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. PUXA O QUADRO BEM PARA CIMA NA TELA DEITADA PARA NÃO SUMIR */
+    section, .container-horario, .quadro-horario {
+        position: relative !important;
+        margin:   10px auto !important; /* Diminui a margem do topo para 40px, fazendo o quadro subir */
+        max-width: 90% !important;
+        width: auto !important;
+        
+    }
+}

@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Faz a imagem ocupar a tela e se comportar como um fundo */
+img {
+   position: fixed; /* Fixa a imagem na tela para que ela não se mova ao rolar a página */
+    top: 0; /* Alinha a imagem no topo exato da tela */
+    left: 0; /* Alinha a imagem na lateral esquerda exata da tela */
+    width: 100vw; /* Alterado: Garante 100% da largura visível da tela do monitor */
+    height: 100vh; /* Alterado: Garante 100% da altura visível da tela do monitor */
+    object-fit: cover; /* Corta e ajusta a imagem para cobrir o fundo sem distorcer ou esticar */
+    z-index: -1; /* Joga a imagem para trás de todos os outros elementos do site */
+}
+
+/* Posiciona o container do botão por cima da imagem */
+
+    /* Posiciona e organiza a barra de botões no topo */
+.container-botao {
+    position: absolute;          /* Mantém o menu flutuando por cima da imagem de fundo */
+    top: 20px;                   /* Define a distância de 20 pixels do topo da tela */
+    left: 0;                     /* Alinha o início do container na borda esquerda */
+    width: 100%;                 /* Faz o container ocupar toda a largura da tela */
+    display: flex;               /* Ativa o Flexbox para alinhar os elementos internos */
+    justify-content: center;     /* Centraliza todos os botões horizontalmente na tela */
+    gap: 15px;                   /* Cria um espaçamento de 15 pixels entre um botão e outro */
+    z-index: 2;                  /* Garante que o menu fique na camada da frente da imagem */
+}
+
+
+/* Estilo opcional para deixar seu botão mais bonito */
+
+button {
+    padding: 0px 17px;          /* Define o espaço interno do botão (superior/inferior e lados) */
+    font-size: 30px;             /* Define o tamanho do texto do botão */
+    background-color: #b7a364;   /* Aplica a cor dourada de fundo no botão */
+    color: #000;                 /* Define a cor do texto do botão como preta */
+    border: none;                /* Remove aquela borda padrão cinza que vem nos botões */
+    border-radius:30px;          /* Arredonda os cantos do botão em 5 pixels */
+    cursor: pointer;             /* Transforma a seta do mouse naquela "mãozinha" de clique */
+    font-weight: bold;           /* Deixa o texto do botão em negrito */
+    white-space: nowrap;         /* Impede que palavras grandes quebrem para a linha de baixo */
+    margin-top: 3%;         /* Impede que palavras grandes quebrem para a linha de baixo */
+    padding: 5px 20px;
+}
+button:hover {
+    opacity: 0.9;                /* Diminui a opacidade para 80%, deixando o botão um pouco transparente */
+    transition: 0.3s;            /* Faz o efeito de desaparecer/aparecer levar 0.3 segundos, ficando suave */
+}
+/* Configuração para criar o espaço das seções abaixo do logotipo */
+section {
+    padding: 100px 20px;         /* Deixa um espaço confortável para o texto não sumir atrás do menu */
+    min-height: 100vh;           /* Faz cada seção ter o tamanho completo de uma tela */
+    background-color: #111111;   /* Fundo escuro para combinar perfeitamente com o fundo da sua logo */
+    color: #ffffff;              /* Texto em branco para dar uma leitura limpa e nítida */
+}
+
+.foto-paulo {
+    position: absolute;    /* Faz a foto flutuar por cima da imagem de fundo */
+    top: 250px;            /* Empurra ela para baixo dos botões (ajuste se precisar) */
+    left: 50%;             /* Move o início da foto para o meio exato da tela */
+    transform: translateX(-50%); /* O SEGREDO: Puxa metade dela de volta para centralizar 100% */
+    
+    width: 330px;          /* Largura perfeita da foto de perfil */
+    height:430px;         /* Altura idêntica para o círculo não virar um ovo */
+    border-radius: 10%;    /* Corta a foto em formato redondo perfeito */
+    object-fit: cover;     /* Garante que o rosto não fique amassado */
+    
+    border: 3px solid #8a887e; /* Bordinha dourada combinando com os seus botões */
+    z-index: 3;            /* Camada 3 para ficar na frente do fundo (que é camada 1) */
+}
+/* ==========================================================================
+   VERSÃO 100% COMPACTA E RESPONSIVA PARA A PÁGINA HOME (CELULAR EM PÉ)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. MENU SUPERIOR COMPACTO E FIXO NO TOPO */
+    .container-botao {
+        position: fixed !important; /* TRAVA O MENU NO TOPO DA TELA */
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important; 
+        padding: 8px 4px !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important; /* Garante que ele fique por cima de qualquer texto ao rolar */
+        background-color: rgba(0, 0, 0, 0.8) !important; /* Fundo preto semi-transparente elegante para não misturar com as letras de baixo */
+        backdrop-filter: blur(5px) !important; /* Efeito de vidro fosco opcional atrás dos botões */
+    }
+
+    .container-botao button {
+        font-size: 11px !important;  
+        padding: 4px 8px !important;  
+        width: auto !important;
+        white-space: nowrap !important;
+        margin-top: 0 !important;
+        border-radius: 15px !important;
+    }
+
+    /* 2. CONSERTO DA LOGO DE FUNDO EM PÉ */
+    img {
+        width: 85% !important; 
+        height: auto !important;
+        max-height: 75vh !important;
+        object-fit: contain !important; 
+        position: fixed !important;
+        top: 55% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+
+    body {
+        background-color: #000000 !important; 
+        padding-top: 50px !important; /* Dá um espaço no topo para o texto do "Seja bem-vindo" não começar escondido debaixo do menu fixo */
+    }
+}
+
+/* ==========================================================================
+   REGRA EXCLUSIVA PARA CELULAR DEITADO - MENU FIXO E COMPACTO
+   ========================================================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* 1. COMPACTA E FIXA O MENU SUPERIOR DEITADO */
+    .container-botao {
+        position: fixed !important; /* TRAVA O MENU NO TOPO TAMBÉM DEITADO */
+        top: 0 !important;
+        left: 0 !important;
+        padding: 4px 2px !important; 
+        gap: 3px !important;         
+        width: 100% !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* 2. DIMINUI OS LETREIROS DEITADOS */
+    .container-botao button {
+        font-size: 9px !important;    
+        padding: 2px 5px !important;  
+        border-radius: 10px !important; 
+    }
+
+    /* 3. MANTÉM O FUNDO PRETO ABSOLUTO NAS LATERAIS */
+    html, body {
+        background-color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 35px !important; /* Espaço pro menu na horizontal */
+        overflow-x: hidden !important;
+    }
+
+    /* 4. MANTÉM A LOGO DO SALÃO CENTRALIZADA E ELEGANTE */
+    img {
+        width: auto !important;
+        height: 75vh !important; 
+        max-width: 95vw !important;
+        object-fit: contain !important;
+        position: fixed !important;
+        top: 58% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+}

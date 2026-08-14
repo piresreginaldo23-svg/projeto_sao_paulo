@@ -1,0 +1,339 @@
+.container-horario {
+    display: flex;
+    /* Ativa o modo Flexbox para alinhar as coisas */
+    justify-content: center;
+    /* Centraliza o quadrado na horizontal (esquerda/direita) */
+    align-items: center;
+    /* Centraliza o quadrado na vertical (cima/baixo) */
+    min-height: 60vh;
+    /* Define a altura da área para o quadrado não ficar colado no topo */
+}
+
+.quadrado-horario {
+    background-color: rgba(17, 34, 51, 0.9);
+    /* Coloca um fundo azul escuro semi-transparente */
+    border: 3px solid #d4af37;
+    /* Cria a borda dourada ao redor do quadrado */
+    border-radius: 15px;
+    /* Deixa as pontas do quadrado arredondadas */
+    padding: 40px;
+    /* Cria um espaço interno para o texto não colar na borda */
+    width: 300px;
+    /* Define a largura fixa do quadrado */
+    text-align: center;
+    /* Alinha todos os textos no centro do quadrado */
+    color: #ffffff;
+    /* Deixa a cor do texto das horas branca */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    /* Coloca uma sombra preta atrás do quadrado */
+    animation: girarDuasVezes 2s ease-in-out forwards;
+    /* Faz o quadrado girar por 2 segundos de forma suave e parar no final */
+    margin: 15%;
+}
+
+.quadrado-horario h3 {
+    color: #d4af37;
+    /* Deixa o título "Nosso Horário" em dourado */
+    margin-bottom: 15px;
+    /* Empurra o texto de baixo para não ficar colado no título */
+    font-size: 24px;
+    /* Define o tamanho da letra do título */
+}
+
+.quadrado-horario p {
+    font-size: 18px;
+    /* Define o tamanho da letra da frase "Terça a Sábado" */
+    margin: 5px 0;
+    /* Controla o espaço em cima e embaixo do texto */
+}
+
+.quadrado-horario .horas {
+    font-weight: bold;
+    /* Deixa o horário em negrito para dar destaque */
+    font-size: 22px;
+    /* Deixa os números do horário um pouco maiores */
+}
+
+@keyframes girarDuasVezes {
+    0% {
+        transform: scale(0) rotate(0deg);
+        /* Começa o giro do tamanho zero e em 0 graus */
+        opacity: 0;
+        /* Começa totalmente invisível */
+    }
+
+    100% {
+        transform: scale(1) rotate(720deg);
+        /* Termina no tamanho normal após dar duas voltas de 360 graus */
+        opacity:1
+        /* Termina totalmente visível na tela */
+    }
+}
+
+img {
+   position: fixed; /* Fixa a imagem na tela para que ela não se mova ao rolar a página */
+    top: 0; /* Alinha a imagem no topo exato da tela */
+    left: 0; /* Alinha a imagem na lateral esquerda exata da tela */
+    width: 100vw; /* Alterado: Garante 100% da largura visível da tela do monitor */
+    height: 100vh; /* Alterado: Garante 100% da altura visível da tela do monitor */
+    object-fit: cover; /* Corta e ajusta a imagem para cobrir o fundo sem distorcer ou esticar */
+    z-index: -1; /* Joga a imagem para trás de todos os outros elementos do site */
+}
+
+.container-botao {
+    position: absolute;
+    /* Mantém o menu flutuando por cima da imagem de fundo */
+    top: 20px;
+    /* Define a distância de 20 pixels do topo da tela */
+    left: 0;
+    /* Alinha o início do container na borda esquerda */
+    width: 100%;
+    /* Faz o container ocupar toda a largura da tela */
+    display: flex;
+    /* Ativa o Flexbox para alinhar os elementos internos */
+    justify-content: center;
+    /* Centraliza todos os botões horizontalmente na tela */
+    gap: 15px;
+    /* Cria um espaçamento de 15 pixels entre um botão e outro */
+    z-index: 2;
+    /* Garante que o menu fique na camada da frente da imagem */
+}
+
+
+/* Estilo opcional para deixar seu botão mais bonito */
+
+button {
+    padding: 0px 17px;
+    /* Define o espaço interno do botão (superior/inferior e lados) */
+    font-size: 30px;
+    /* Define o tamanho do texto do botão */
+    background-color: #b7a364;
+    /* Aplica a cor dourada de fundo no botão */
+    color: #0a0a0a;
+    /* Define a cor do texto do botão como preta */
+    border: none;
+    /* Remove aquela borda padrão cinza que vem nos botões */
+    border-radius: 30px;
+    /* Arredonda os cantos do botão em 5 pixels */
+    cursor: pointer;
+    /* Transforma a seta do mouse naquela "mãozinha" de clique */
+    font-weight: bold;
+    /* Deixa o texto do botão em negrito */
+    white-space: nowrap;
+    margin-top: 3%;
+    /* Impede que palavras grandes quebrem para a linha de baixo */
+    padding: 5px 20px;
+}
+
+button:hover {
+    opacity: 0.8;
+    /* Diminui a opacidade para 80%, deixando o botão um pouco transparente */
+    transition: 0.3s;
+    /* Faz o efeito de desaparecer/aparecer levar 0.3 segundos, ficando suave */
+}
+
+/* Configuração para criar o espaço das seções abaixo do logotipo */
+section {
+    padding: 100px 20px;
+    /* Deixa um espaço confortável para o texto não sumir atrás do menu */
+    min-height: 100vh;
+    /* Faz cada seção ter o tamanho completo de uma tela */
+    background-color: #111111;
+    /* Fundo escuro para combinar perfeitamente com o fundo da sua logo */
+    color: #080808;
+    /* Texto em branco para dar uma leitura limpa e nítida */
+}
+/* ==========================================================================
+   VERSÃO 100% COMPACTA E RESPONSIVA PARA A PÁGINA HOME (CELULAR EM PÉ)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. MENU SUPERIOR COMPACTO E FIXO NO TOPO */
+    .container-botao {
+        position: fixed !important; /* TRAVA O MENU NO TOPO DA TELA */
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important; 
+        padding: 8px 4px !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important; /* Garante que ele fique por cima de qualquer texto ao rolar */
+        background-color: rgba(0, 0, 0, 0.8) !important; /* Fundo preto semi-transparente elegante para não misturar com as letras de baixo */
+        backdrop-filter: blur(5px) !important; /* Efeito de vidro fosco opcional atrás dos botões */
+    }
+
+    .container-botao button {
+        font-size: 11px !important;  
+        padding: 4px 8px !important;  
+        width: auto !important;
+        white-space: nowrap !important;
+        margin-top: 0 !important;
+        border-radius: 15px !important;
+    }
+
+    /* 2. CONSERTO DA LOGO DE FUNDO EM PÉ */
+    img {
+        width: 85% !important; 
+        height: auto !important;
+        max-height: 75vh !important;
+        object-fit: contain !important; 
+        position: fixed !important;
+        top: 55% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+
+    body {
+        background-color: #000000 !important; 
+        padding-top: 50px !important; /* Dá um espaço no topo para o texto do "Seja bem-vindo" não começar escondido debaixo do menu fixo */
+    }
+}
+
+/* ==========================================================================
+   REGRA EXCLUSIVA PARA CELULAR DEITADO - MENU FIXO E COMPACTO
+   ========================================================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* 1. COMPACTA E FIXA O MENU SUPERIOR DEITADO */
+    .container-botao {
+        position: fixed !important; /* TRAVA O MENU NO TOPO TAMBÉM DEITADO */
+        top: 0 !important;
+        left: 0 !important;
+        padding: 4px 2px !important; 
+        gap: 3px !important;         
+        width: 100% !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* 2. DIMINUI OS LETREIROS DEITADOS */
+    .container-botao button {
+        font-size: 9px !important;    
+        padding: 2px 5px !important;  
+        border-radius: 10px !important; 
+    }
+
+    /* 3. MANTÉM O FUNDO PRETO ABSOLUTO NAS LATERAIS */
+    html, body {
+        background-color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 35px !important; /* Espaço pro menu na horizontal */
+        overflow-x: hidden !important;
+    }
+
+    /* 4. MANTÉM A LOGO DO SALÃO CENTRALIZADA E ELEGANTE */
+    img {
+        width: auto !important;
+        height: 75vh !important; 
+        max-width: 95vw !important;
+        object-fit: contain !important;
+        position: fixed !important;
+        top: 58% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+}
+/* ==========================================================================
+   VERSÃO RESPONSIVA E AJUSTE DO CARTÃO DE HORÁRIOS (CELULAR EM PÉ)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. MENU SUPERIOR COMPACTO E FIXO NO TOPO */
+    .container-botao {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 5px !important; 
+        padding: 8px 4px !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        backdrop-filter: blur(5px) !important;
+    }
+
+    .container-botao button {
+        font-size: 11px !important;  
+        padding: 4px 8px !important;  
+        width: auto !important;
+        white-space: nowrap !important;
+        margin-top: 0 !important;
+        border-radius: 15px !important;
+    }
+
+    /* 2. LOGO OU IMAGEM DE FUNDO COMPACTA */
+    img {
+        width: 85% !important; 
+        height: auto !important;
+        max-height: 75vh !important;
+        object-fit: contain !important; 
+        position: fixed !important;
+        top: 20% !important; 
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: -1 !important;
+    }
+
+    /* 3. PEGA O SEU QUADRO/CARTÃO E PUXA ELE PARA CIMA */
+    body {
+        background-color: #000000 !important;
+    }
+
+    /* Ajusta o container do quadro de horários para subir */
+    section, .container-horario, .quadro-horario { 
+        position: relative !important;
+        margin-top: 70px !important; /* Controla a distância exata do menu do topo */
+        padding: 15px !important;
+        top: 0 !important;
+    }
+}
+
+/* ==========================================================================
+   REGRA EXCLUSIVA PARA CELULAR DEITADO (HORIZONTAL) - SUBIR O QUADRO
+   ========================================================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* 1. COMPACTA O MENU SUPERIOR DEITADO */
+    .container-botao {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 4px 2px !important; 
+        gap: 3px !important;         
+        width: 100% !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .container-botao button {
+        font-size: 9px !important;    
+        padding: 2px 5px !important;  
+        border-radius: 10px !important; 
+    }
+
+    html, body {
+        background-color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. PUXA O QUADRO BEM PARA CIMA NA TELA DEITADA PARA NÃO SUMIR */
+    section, .container-horario, .quadro-horario {
+        position: relative !important;
+        margin:   10px auto !important; /* Diminui a margem do topo para 40px, fazendo o quadro subir */
+        max-width: 90% !important;
+        width: auto !important;
+        
+    }
+}

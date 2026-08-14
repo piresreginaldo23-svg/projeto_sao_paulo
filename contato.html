@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+  <link rel="stylesheet" content="text/css" href="contatoindex.css">
+</head>
+
+<body>
+
+  <div class="container-botao">
+    <button onclick="window.location.href='arquivo.html'">Home</button>
+    <button onclick="window.location.href='sobre.html'">Sobre</button>
+    <button onclick="window.location.href='galeria.html'">Galeria</button>
+    <button onclick="window.location.href='profissional.html'">Profissional</button>
+    <button onclick="window.location.href='horario.html'">Horário</button>
+    <button onclick="window.location.href='servicos.html'">Serviços</button>
+    <button onclick="window.location.href='contato.html'">Contato</button>
+  </div>
+
+  <img class="madeira-fundo" src="efeito.png" alt="madeira-fundo">
+
+
+
+
+
+  <section class="conteudo-principal">
+    <div class="caixa-contato">
+      <!-- Telefone -->
+      <div class="lado-esquerdo">
+        <div class="bloco-telefone">
+          <h1>(32) 99816-7537</h1>
+        </div>
+ <!-- 🎠 CARROSSEL DE FOTOS -->
+  <div class="carrossel-container">
+    <div class="carrossel">
+
+      <!-- 📸 FOTO 1 -->
+      <div class="slide ativo">
+        <img src="foto1.jpg" alt="Paulo Alexandre - Trabalhando na barbearia">
+      </div>
+
+      <!-- 📸 FOTO 2 -->
+      <div class="slide">
+        <img src="foto2.jpg" alt="Paulo Alexandre - De terno">
+      </div>
+
+      <!-- 📸 FOTO 3 -->
+      <div class="slide">
+        <img src="foto3.jpg" alt="Paulo Alexandre - Com tesoura">
+      </div>
+
+      <!-- 📸 FOTO 4 -->
+      <div class="slide">
+        <img src="foto4.jpg" alt="Paulo Alexandre - Frase motivacional">
+      </div>
+
+      <!-- 📸 FOTO 5 -->
+      <div class="slide">
+        <img src="foto5.jpg" alt="Paulo Alexandre - Boné">
+      </div>
+
+      <!-- 📸 FOTO 6 -->
+      <div class="slide">
+        <img src="foto6.jpg" alt="Paulo Alexandre - De terno preto">
+      </div>
+
+    </div>
+     <!-- ⬅️➡️ BOTÕES DE NAVEGAÇÃO -->
+    <button class="btn-anterior">&#10094;</button>
+    <button class="btn-proximo">&#10095;</button>
+
+    <!-- ⚪ PONTINHOS INDICADORES -->
+    <div class="pontos">
+      <span class="ponto ativo" data-indice="0"></span>
+      <span class="ponto" data-indice="1"></span>
+      <span class="ponto" data-indice="2"></span>
+      <span class="ponto" data-indice="3"></span>
+      <span class="ponto" data-indice="4"></span>
+      <span class="ponto" data-indice="5"></span>
+    </div>
+  </div>
+  <script>
+    function compartilhar() {
+      var link = window.location.href;
+      alert('Seu link é: ' + link + '\nCopie manualmente da barra de endereço.');
+    }
+  </script>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const pontos = document.querySelectorAll('.ponto');
+    const btnAnterior = document.querySelector('.btn-anterior');
+    const btnProximo = document.querySelector('.btn-proximo');
+    let indiceAtual = 0;
+
+    // Mostra o slide ativo
+    function mostrarSlide(indice) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('ativo');
+        pontos[i].classList.remove('ativo');
+      });
+      slides[indice].classList.add('ativo');
+      pontos[indice].classList.add('ativo');
+      indiceAtual = indice;
+    }
+
+    // Próximo slide
+    btnProximo.addEventListener('click', () => {
+      let proximo = (indiceAtual + 1) % slides.length;
+      mostrarSlide(proximo);
+    });
+
+    // Slide anterior
+    btnAnterior.addEventListener('click', () => {
+      let anterior = (indiceAtual - 1 + slides.length) % slides.length;
+      mostrarSlide(anterior);
+    });
+
+    // Clica nos pontinhos
+    pontos.forEach((ponto, i) => {
+      ponto.addEventListener('click', () => {
+        mostrarSlide(i);
+      });
+    });
+
+    // ⏰ TROCA AUTOMÁTICA — a cada 5 segundos
+    setInterval(() => {
+      let proximo = (indiceAtual + 1) % slides.length;
+      mostrarSlide(proximo);
+    }, 5000);
+  </script>
+        <!-- Mapa -->
+        <div class="bloco-mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=SEU_CODIGO_AQUI" width="300" height="150" style="border:0;"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+
+        <!-- Botões -->
+        <div class="bloco-botoes">
+          <a href="https://www.facebook.com/paulokezia.alexandrevicente" class="botao-social">Facebook</a>
+          <a href="https://www.instagram.com/paulo_alexandrevicente/" class="botao-social"
+            class="botao-social">Instagran</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Pauloalexv@hotmail.com" class="botao-social">Enviar
+            E-mail</a>
+          <a href="javascript:void(0)" class="botao-social" onclick="compartilhar()">Compartilhar Página</a>
+        </div>
+      </div>
+  </section>
+ 
+
+   
+</body>
+
+</html>
